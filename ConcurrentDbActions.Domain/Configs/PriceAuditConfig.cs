@@ -8,7 +8,7 @@ namespace ConcurrentDbActions.Domain.Configs
     {
         public void Configure(EntityTypeBuilder<PriceAudit> builder)
         {
-            builder.HasKey(x => x.PriceAuditId);
+            builder.HasKey(x => x.Id);
 
             builder.HasOne(x => x.Product)
                 .WithMany(x => x.PriceAudits)

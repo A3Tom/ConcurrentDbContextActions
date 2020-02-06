@@ -9,7 +9,7 @@ namespace ConcurrentDbActions.Domain.Configs
     {
         public void Configure(EntityTypeBuilder<Warehouse> builder)
         {
-            builder.HasKey(x => x.WarehouseId);
+            builder.HasKey(x => x.Id);
         }
     }
 }

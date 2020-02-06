@@ -4,7 +4,7 @@ namespace ConcurrentDbActions.Domain.Models
 {
     public class PriceAudit
     {
-        public int PriceAuditId { get; }
+        public int Id { get; }
         public int ProductId { get; private set; }
         public decimal UpdatedPrice { get; private set; }
         public DateTimeOffset ModificationDate { get; private set; }

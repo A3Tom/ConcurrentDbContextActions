@@ -4,11 +4,12 @@ namespace ConcurrentDbActions.Domain.Models
 {
     public class Stock
     {
-        public int StockId { get; }
-        public int ProductId { get; set; }
-        public int WarehouseId { get; set; }
-        public int LocationId { get; set; }
+        public int Id { get; }
+        public int ProductId { get; private set; }
+        public int WarehouseId { get; private set; }
+        public int LocationId { get; private set; }
         public double Quantity { get; private set; }
+        public bool Active { get; set; }
 
         // Reverse Navigation
         public Product Product { get; set; }
@@ -17,5 +18,14 @@ namespace ConcurrentDbActions.Domain.Models
 
         // Virtual Navigation
         public ICollection<StockAudit> StockAudits { get; set; }
+
+        public Stock(int productId, int warehouseId, int locationId, double quantity, bool active)
+        {
+            ProductId = productId;
+            WarehouseId = warehouseId;
+            LocationId = locationId;
+            Quantity = quantity;
+            Active = active;
+        }
     }
 }
