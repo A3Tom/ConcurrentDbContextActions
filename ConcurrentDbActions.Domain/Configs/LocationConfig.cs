@@ -8,8 +8,7 @@ namespace ConcurrentDbActions.Domain.Configs
     {
         public void Configure(EntityTypeBuilder<Location> builder)
         {
-            builder
-                .HasKey(x => x.LocationId);
+            builder.HasKey(x => x.LocationId);
         }
     }
 }

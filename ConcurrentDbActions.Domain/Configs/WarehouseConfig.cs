@@ -1,10 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using ConcurrentDbActions.Domain.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ConcurrentDbActions.Domain.Configs
 {
-    public class WarehouseConfig 
+    public class WarehouseConfig : IEntityTypeConfiguration<Warehouse>
     {
+        public void Configure(EntityTypeBuilder<Warehouse> builder)
+        {
+            builder.HasKey(x => x.WarehouseId);
+        }
     }
 }
