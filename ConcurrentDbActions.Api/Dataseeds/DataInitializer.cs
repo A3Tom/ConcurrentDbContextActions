@@ -13,6 +13,8 @@ namespace ConcurrentDbActions.Api.Dataseeds
         {
             _context = serviceProvider.GetService<StockroomDbContext>();
 
+            _context.Database.EnsureCreated();
+
             _context.AddRange(LocationDataSeed.Data());
             _context.AddRange(ProductDataSeed.Data());
             _context.AddRange(StockDataSeed.Data());
