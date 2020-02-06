@@ -1,4 +1,3 @@
-using ConcurrentDbActions.Api.Dataseeds;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -10,7 +9,6 @@ namespace ConcurrentDbActions.Api
         {
             CreateHostBuilder(args)
                 .Build()
-                .SeedData()
                 .Run();
         }
 

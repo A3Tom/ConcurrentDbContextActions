@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConcurrentDbActions.Data\ConcurrentDbActions.Data.csproj" />
+    <ProjectReference Include="..\ConcurrentDbActions.Domain\ConcurrentDbActions.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Abstract\Product\" />
+    <Folder Include="Concrete\Product\" />
+  </ItemGroup>
+
 </Project>

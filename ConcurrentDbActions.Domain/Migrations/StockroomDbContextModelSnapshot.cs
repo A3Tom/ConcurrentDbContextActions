@@ -18,21 +18,21 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Location", b =>
                 {
-                    b.Property<int>("LocationId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("LocationId");
+                    b.HasKey("Id");
 
                     b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.PriceAudit", b =>
                 {
-                    b.Property<int>("PriceAuditId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -48,7 +48,7 @@ namespace ConcurrentDbActions.Domain.Migrations
                     b.Property<decimal>("UpdatedPrice")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("PriceAuditId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
@@ -59,7 +59,7 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Product", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -75,15 +75,18 @@ namespace ConcurrentDbActions.Domain.Migrations
                     b.Property<int>("ProductType")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("Id");
 
                     b.ToTable("Products");
                 });
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Stock", b =>
                 {
-                    b.Property<int>("StockId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Active")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LocationId")
@@ -98,7 +101,7 @@ namespace ConcurrentDbActions.Domain.Migrations
                     b.Property<int>("WarehouseId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("StockId");
+                    b.HasKey("Id");
 
                     b.HasIndex("LocationId");
 
@@ -111,7 +114,7 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.StockAudit", b =>
                 {
-                    b.Property<int>("StockAuditId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -124,7 +127,7 @@ namespace ConcurrentDbActions.Domain.Migrations
                     b.Property<double>("UpdatedQuantity")
                         .HasColumnType("REAL");
 
-                    b.HasKey("StockAuditId");
+                    b.HasKey("Id");
 
                     b.HasIndex("StockId");
 
@@ -155,17 +158,17 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Warehouse", b =>
                 {
-                    b.Property<int>("WarehouseId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("WarehouseName")
+                    b.Property<string>("Name")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("WarehouseType")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("WarehouseId");
+                    b.HasKey("Id");
 
                     b.ToTable("Warehouses");
                 });

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ConcurrentDbActions.Domain.Migrations
 {
     [DbContext(typeof(StockroomDbContext))]
-    [Migration("20200205235049_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20200206015229_Alpha001_Updated-Primary-Keys-To-All-Be-Named-Id")]
+    partial class Alpha001_UpdatedPrimaryKeysToAllBeNamedId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,41 +20,37 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Location", b =>
                 {
-                    b.Property<int>("LocationId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
-                    b.HasKey("LocationId");
+                    b.HasKey("Id");
 
                     b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.PriceAudit", b =>
                 {
-                    b.Property<int>("PriceAuditId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTimeOffset>("ModificationDate")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("INTEGER");
 
                     b.Property<Guid>("UpdatedByUserId")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("UpdatedPrice")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
-                    b.HasKey("PriceAuditId");
+                    b.HasKey("Id");
 
                     b.HasIndex("ProductId");
 
@@ -65,35 +61,34 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Product", b =>
                 {
-                    b.Property<int>("ProductId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Barcode")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
-
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("ProductType")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("ProductId");
+                    b.HasKey("Id");
 
                     b.ToTable("Products");
                 });
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Stock", b =>
                 {
-                    b.Property<int>("StockId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("Active")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("LocationId")
@@ -108,7 +103,7 @@ namespace ConcurrentDbActions.Domain.Migrations
                     b.Property<int>("WarehouseId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("StockId");
+                    b.HasKey("Id");
 
                     b.HasIndex("LocationId");
 
@@ -121,7 +116,7 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.StockAudit", b =>
                 {
-                    b.Property<int>("StockAuditId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -129,13 +124,12 @@ namespace ConcurrentDbActions.Domain.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<Guid>("UpdatedByUserId")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.Property<double>("UpdatedQuantity")
                         .HasColumnType("REAL");
 
-                    b.HasKey("StockAuditId");
+                    b.HasKey("Id");
 
                     b.HasIndex("StockId");
 
@@ -148,20 +142,16 @@ namespace ConcurrentDbActions.Domain.Migrations
                 {
                     b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450); 
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                        .HasColumnType("TEXT");
 
                     b.HasKey("UserId");
 
@@ -170,18 +160,17 @@ namespace ConcurrentDbActions.Domain.Migrations
 
             modelBuilder.Entity("ConcurrentDbActions.Domain.Models.Warehouse", b =>
                 {
-                    b.Property<int>("WarehouseId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("WarehouseName")
-                        .HasColumnType("VARCHAR")
-                        .HasMaxLength(450);
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
 
                     b.Property<int>("WarehouseType")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("WarehouseId");
+                    b.HasKey("Id");
 
                     b.ToTable("Warehouses");
                 });

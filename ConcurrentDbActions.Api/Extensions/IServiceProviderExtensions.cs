@@ -1,17 +1,14 @@
 ﻿using System;
-using System.Threading.Tasks;
 using ConcurrentDbActions.Api.Dataseeds.Models;
 using ConcurrentDbActions.Domain.Contexts;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace ConcurrentDbActions.Api.Dataseeds
+namespace ConcurrentDbActions.Api.Extensions
 {
-    public class DataInitializer
+    public static class IServiceProviderExtensions
     {
-        private StockroomDbContext _context;
-        public async Task InitializeDataAsync(IServiceProvider serviceProvider)
+        public static IServiceProvider UseSeedData(this IServiceProvider serviceProvider)
         {
-            _context = serviceProvider.GetService<StockroomDbContext>();
+            var _context = (StockroomDbContext)serviceProvider.GetService(typeof(StockroomDbContext));
 
             _context.Database.EnsureCreated();
 
@@ -21,7 +18,9 @@ namespace ConcurrentDbActions.Api.Dataseeds
             _context.AddRange(UserDataSeed.Data());
             _context.AddRange(WarehouseDataSeed.Data());
 
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
+
+            return serviceProvider;
         }
     }
 }

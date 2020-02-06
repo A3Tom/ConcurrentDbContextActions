@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ConcurrentDbActions.Data\ConcurrentDbActions.Data.csproj" />
     <ProjectReference Include="..\ConcurrentDbActions.Domain\ConcurrentDbActions.Domain.csproj" />
     <ProjectReference Include="..\ConcurrentDbActions.Service\ConcurrentDbActions.Service.csproj" />
   </ItemGroup>
