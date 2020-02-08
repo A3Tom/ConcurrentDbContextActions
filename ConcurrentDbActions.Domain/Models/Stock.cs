@@ -4,7 +4,7 @@ namespace ConcurrentDbActions.Domain.Models
 {
     public class Stock
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public int ProductId { get; private set; }
         public int WarehouseId { get; private set; }
         public int LocationId { get; private set; }

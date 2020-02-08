@@ -1,7 +1,9 @@
+using ConcurrentDbActions.Api.Controllers;
 using ConcurrentDbActions.Api.Extensions;
 using ConcurrentDbActions.Domain.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +30,12 @@ namespace ConcurrentDbActions.Api
                 options.UseSqlServer(Configuration.GetConnectionString("StockroomDatabase"));
             });
 
+            services.AddApiVersioning(options =>
+            {
+                options.ReportApiVersions = true;
+                options.AssumeDefaultVersionWhenUnspecified = true;
+            });
+
             services.RegisterModules();
         }
 
@@ -47,7 +55,7 @@ namespace ConcurrentDbActions.Api
                 endpoints.MapControllers();
             });
 
-            //app.ApplicationServices.GetRequiredService<StockroomDbContext>().Seed();
+
         }
     }
 }

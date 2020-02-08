@@ -5,7 +5,7 @@ namespace ConcurrentDbActions.Domain.Models
 {
     public class Product
     {
-        public int Id { get; }
+        public int Id { get; set; }
         public string Name { get; private set; }
         public string Barcode { get; private set; }
         public ProductTypeEnum ProductType { get; set; }

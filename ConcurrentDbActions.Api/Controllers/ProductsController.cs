@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using ConcurrentDbActions.Domain.Constants;
 using ConcurrentDbActions.Domain.Models;
 using ConcurrentDbActions.Service.Abstract;
 using Microsoft.AspNetCore.Mvc;
@@ -7,8 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace ConcurrentDbActions.Api.Controllers
 {
     [ApiController]
-    [Route("[controller]/{action}")]
-    public class ProductsController : Controller
+    [ApiVersion("1.0")]
+    [Route(Routes.DefaultVersionedApiRoute)]
+    public class ProductsController : BaseController
     {
         private readonly IProductStockroomService _productStockroomService;
 
@@ -16,7 +18,7 @@ namespace ConcurrentDbActions.Api.Controllers
         {
             _productStockroomService = productStockroomService;
         }
-
+            
         [HttpGet]
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
