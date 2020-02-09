@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "b9324f11-0f9e-4ef5-b0db-2dacf22961d0",
+		"name": "Warehouse Application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "GetAllProducts",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{defaultVersion}}/{{products}}/GetAllProducts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{defaultVersion}}",
+								"{{products}}",
+								"GetAllProducts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Remo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{defaultVersion}}/{{users}}/get",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{defaultVersion}}",
+								"{{users}}",
+								"get"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "080fc8f9-88fd-4c71-b2fb-29cd6b03a42b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "bc1f141c-4889-4762-9d62-7b40cafbe301",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "c3be6196-f8fe-48e8-9f34-1494a8baca98",
+			"key": "baseUrl",
+			"value": "https://localhost:44318/api",
+			"type": "string"
+		},
+		{
+			"id": "f25ddfc1-5db6-4875-9614-ca623266bfe9",
+			"key": "defaultVersion",
+			"value": "1.0",
+			"type": "string"
+		},
+		{
+			"id": "6a667aae-c82e-48a7-aaec-849ba6dbc2d0",
+			"key": "products",
+			"value": "Products",
+			"type": "string"
+		},
+		{
+			"id": "9a87cd5c-cc70-4915-9b61-8bedbc4a2bba",
+			"key": "users",
+			"value": "Users",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
