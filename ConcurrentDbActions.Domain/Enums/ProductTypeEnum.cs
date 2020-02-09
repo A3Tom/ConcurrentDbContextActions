@@ -6,6 +6,8 @@ namespace ConcurrentDbActions.Domain.Enums
 {
     public enum ProductTypeEnum
     {
-        Default = 1
-     }
+        YeastyHings = 1,
+        Meat = 2,
+        Amphibian = 3
+    }
 }
