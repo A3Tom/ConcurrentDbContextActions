@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ConcurrentDbActions.Domain.Models
 {
     public class PriceAudit
     {
-        public int Id { get; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
         public int ProductId { get; private set; }
         public decimal UpdatedPrice { get; private set; }
         public DateTimeOffset ModificationDate { get; private set; }

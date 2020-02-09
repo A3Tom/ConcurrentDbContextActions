@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ConcurrentDbActions.Data.Abstract;
@@ -21,13 +22,6 @@ namespace ConcurrentDbActions.Data.Concrete
         {
             return await _dbContext.Products
                 .ToListAsync();
-        }
-
-        public async Task<Product> GetProductById(int productId)
-        {
-            return await _dbContext.Products
-                .Where(x => x.Id == productId)
-                .SingleAsync();
         }
     }
 }

@@ -1,15 +1,15 @@
-﻿using System;
-using ConcurrentDbActions.Domain.Enums;
+﻿using ConcurrentDbActions.Domain.Enums;
 using ConcurrentDbActions.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ConcurrentDbActions.Domain.Configs
 {
-    public class WarehouseConfig : IEntityTypeConfiguration<Warehouse>
+    public class WarehouseConfig : BaseConfig<Warehouse>
     {
-        public void Configure(EntityTypeBuilder<Warehouse> builder)
+        public override void Configure(EntityTypeBuilder<Warehouse> builder)
         {
+            base.Configure(builder);
+
             builder.HasKey(x => x.Id);
 
             builder.HasData(SeedData());

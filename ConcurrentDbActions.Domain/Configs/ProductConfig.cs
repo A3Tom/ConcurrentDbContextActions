@@ -1,14 +1,15 @@
 ﻿using ConcurrentDbActions.Domain.Enums;
 using ConcurrentDbActions.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ConcurrentDbActions.Domain.Configs
 {
-    public class ProductConfig : IEntityTypeConfiguration<Product>
+    public class ProductConfig : BaseConfig<Product>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        public override void Configure(EntityTypeBuilder<Product> builder)
         {
+            base.Configure(builder);
+
             builder.HasKey(x => x.Id);
 
             builder.HasData(SeedData());

@@ -1,14 +1,15 @@
 ﻿using System;
 using ConcurrentDbActions.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ConcurrentDbActions.Domain.Configs
 {
-    class UserConfig : IEntityTypeConfiguration<User>
+    class UserConfig : BaseConfig<User>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+        public override void Configure(EntityTypeBuilder<User> builder)
         {
+            base.Configure(builder);
+
             builder.HasKey(x => x.UserId);
 
             builder.HasData(SeedData());

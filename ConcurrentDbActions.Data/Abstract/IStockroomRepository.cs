@@ -6,8 +6,6 @@ namespace ConcurrentDbActions.Data.Abstract
 {
     public interface IStockroomRepository
     {
-        Task<Product> GetProductById(int productId);
-
         Task<List<Product>> GetAllProducts();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using ConcurrentDbActions.Domain.Constants;
 using ConcurrentDbActions.Domain.Models;
@@ -18,11 +19,17 @@ namespace ConcurrentDbActions.Api.Controllers
         {
             _productStockroomService = productStockroomService;
         }
-            
+
         [HttpGet]
         public async Task<IEnumerable<Product>> GetAllProducts()
         {
             return await _productStockroomService.GetAllProducts();
         }
+
+        //[HttpPost]
+        //public async Task<int> AddProducts([FromBody] Product productsToAdd)
+        //{
+        //    return await _productStockroomService.AddProduct(product);
+        //}
     }
 }

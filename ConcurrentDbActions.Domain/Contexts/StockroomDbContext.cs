@@ -36,7 +36,5 @@ namespace ConcurrentDbActions.Domain.Contexts
 
             base.OnModelCreating(builder);
         }
-
-
     }
 }

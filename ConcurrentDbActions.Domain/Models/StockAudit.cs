@@ -1,9 +1,11 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ConcurrentDbActions.Domain.Models
 {
     public class StockAudit
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; }
         public int StockId { get; private set; }
         public double UpdatedQuantity { get; private set; }

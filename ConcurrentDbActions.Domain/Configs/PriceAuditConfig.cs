@@ -1,13 +1,14 @@
 ﻿using ConcurrentDbActions.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ConcurrentDbActions.Domain.Configs
 {
-    public class PriceAuditConfig : IEntityTypeConfiguration<PriceAudit>
+    public class PriceAuditConfig : BaseConfig<PriceAudit>
     {
-        public void Configure(EntityTypeBuilder<PriceAudit> builder)
+        public override void Configure(EntityTypeBuilder<PriceAudit> builder)
         {
+            base.Configure(builder);
+
             builder.HasKey(x => x.Id);
 
             builder.HasOne(x => x.Product)

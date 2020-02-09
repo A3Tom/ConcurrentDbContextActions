@@ -1,13 +1,14 @@
 ﻿using ConcurrentDbActions.Domain.Models;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ConcurrentDbActions.Domain.Configs
 {
-    public class LocationConfig : IEntityTypeConfiguration<Location>
+    public class LocationConfig : BaseConfig<Location>
     {
-        public void Configure(EntityTypeBuilder<Location> builder)
+        public override void Configure(EntityTypeBuilder<Location> builder)
         {
+            base.Configure(builder);
+
             builder.HasKey(x => x.Id);
 
             builder.HasData(SeedData());

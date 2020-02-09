@@ -1,14 +1,16 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ConcurrentDbActions.Domain.Models
 {
     public class Stock
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public int ProductId { get; private set; }
-        public int WarehouseId { get; private set; }
-        public int LocationId { get; private set; }
-        public double Quantity { get; private set; }
+        public int ProductId { get; set; }
+        public int WarehouseId { get; set; }
+        public int LocationId { get; set; }
+        public double Quantity { get; set; }
         public bool Active { get; set; }
 
         // Reverse Navigation
@@ -18,6 +20,11 @@ namespace ConcurrentDbActions.Domain.Models
 
         // Virtual Navigation
         public ICollection<StockAudit> StockAudits { get; set; }
+
+        public Stock()
+        {
+
+        }
 
         public Stock(int productId, int warehouseId, int locationId, double quantity, bool active)
         {

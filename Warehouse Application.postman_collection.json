@@ -41,7 +41,7 @@
 			"name": "User",
 			"item": [
 				{
-					"name": "Remo",
+					"name": "Remo (v1.0)",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -52,6 +52,25 @@
 							],
 							"path": [
 								"{{defaultVersion}}",
+								"{{users}}",
+								"get"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remo (v2.0)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/2.0/{{users}}/get",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"2.0",
 								"{{users}}",
 								"get"
 							]
@@ -87,25 +106,25 @@
 	],
 	"variable": [
 		{
-			"id": "c3be6196-f8fe-48e8-9f34-1494a8baca98",
+			"id": "8e363d1f-d55c-4d8f-9cef-4991a8018c36",
 			"key": "baseUrl",
 			"value": "https://localhost:44318/api",
 			"type": "string"
 		},
 		{
-			"id": "f25ddfc1-5db6-4875-9614-ca623266bfe9",
+			"id": "57b67c41-2b48-4730-9b92-c366cb1227fc",
 			"key": "defaultVersion",
 			"value": "1.0",
 			"type": "string"
 		},
 		{
-			"id": "6a667aae-c82e-48a7-aaec-849ba6dbc2d0",
+			"id": "374ec493-d2df-411a-95fe-722c9d78405c",
 			"key": "products",
 			"value": "Products",
 			"type": "string"
 		},
 		{
-			"id": "9a87cd5c-cc70-4915-9b61-8bedbc4a2bba",
+			"id": "f5106749-0f5a-469b-bf3c-0e487f7bb90e",
 			"key": "users",
 			"value": "Users",
 			"type": "string"

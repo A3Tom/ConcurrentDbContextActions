@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using ConcurrentDbActions.Domain.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using ConcurrentDbActions.Domain.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace ConcurrentDbActions.Domain.Configs
 {
-    public class StockConfig : IEntityTypeConfiguration<Stock>
+    public class StockConfig : BaseConfig<Stock>
     {
-        public void Configure(EntityTypeBuilder<Stock> builder)
+        public override void Configure(EntityTypeBuilder<Stock> builder)
         {
+            base.Configure(builder);
+
             builder.HasKey(x => x.Id);
 
             builder.HasOne(x => x.Product)
